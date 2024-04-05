@@ -1,0 +1,6 @@
+function dgam1 = Maturation(c,v,Ns,Ne)
+    Bf =v.Bv(Ns:Ne) - v.Bc(Ns:Ne);
+    dgam1 =  c.dt* (c.alMature .* c.If .* (1+v.LamMud(Ns:Ne)).*c.vsSusbed....
+        .* v.Qt(Ns:Ne)./v.Qw(Ns:Ne) ./ (v.Hf(Ns:Ne).*Bf + v.H(Ns:Ne).*v.Bc(Ns:Ne)).....
+        .* (c.gamMax - v.gam(Ns:Ne)).^c.gamExp);
+end
